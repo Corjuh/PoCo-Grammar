@@ -55,7 +55,6 @@ SRENEG:     'Negative' ;
 
 SUBSET:     'Subset' ;
 INFINITE:   'Infinite' ;
-EQUALS:     'Equals' ;
 ACTION:     'Action' ;
 RESULT:     'Result' ;
 
