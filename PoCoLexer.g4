@@ -18,6 +18,7 @@ INPUTWILD:  '_' ;
 PLUS:       '+' ;
 MINUS:      '-' ;
 POUND:      '#' ;
+TRANS:      'transaction' -> pushMode(TRANSACTIONS) ;
 NEUTRAL:    'Neutral' ;
 MAIN:       'Main' ;
 VAR:        'var' ;
@@ -121,3 +122,8 @@ mode OBJECT;
 ID4:        [a-zA-Z][a-zA-Z0-9_\-]* -> type(ID) ;
 DOT3:       '.' -> type(DOT) ;
 OBJLBRACE:  '{' -> type(LBRACE), popMode ;
+
+mode TRANSACTIONS;
+
+TRANSMARKER:    'transaction' -> type(TRANS) ;
+TRANSCONTENT:   .+;

@@ -13,13 +13,13 @@ policy:     pimports macrodecls ppol |
 
 ppol:       MAIN LPAREN RPAREN COLON treedefs |
             id LPAREN RPAREN COLON treedefs |
-            id LPAREN paramlist RPAREN COLON vardecls macrodecls execution trans|
+            id LPAREN paramlist RPAREN COLON vardecls macrodecls execution transactionlist |
             id LPAREN paramlist RPAREN COLON vardecls macrodecls execution |
             id LPAREN paramlist RPAREN COLON macrodecls execution |
             id LPAREN paramlist RPAREN COLON vardecls execution |
-            id LPAREN paramlist RPAREN COLON macrodecls execution trans|
-            id LPAREN paramlist RPAREN COLON vardecls execution trans|
-            id LPAREN paramlist RPAREN COLON execution trans |
+            id LPAREN paramlist RPAREN COLON macrodecls execution transactionlist |
+            id LPAREN paramlist RPAREN COLON vardecls execution transactionlist |
+            id LPAREN paramlist RPAREN COLON execution transactionlist |
             id LPAREN paramlist RPAREN COLON execution ;
 
 pimport:    IMPORT id ;
@@ -41,9 +41,12 @@ policyargs: policyarg |
             policyargs COMMA policyarg |
             ;
 
+transactionlist: transaction |
+                 transactionlist transaction ;
 
-trans:      DOT MAIN DOT ;
-            // TODO: Flesh out trans rule so it is not a placeholder.
+transaction:    TRANS transbody ;
+
+transbody: TRANSCONTENT ;
 
 macrodecls: macrodecl |
             macrodecls macrodecl ;
