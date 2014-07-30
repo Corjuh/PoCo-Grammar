@@ -67,6 +67,11 @@ map (Union, -`ClassLoader.<init>(%)',
                         | <Result(`IsTrustedPackage($stacktrace)', `#Boolean{false}') => Neutral>)))
 )*
 
+transaction private static Boolean IsTrustedPackage(stacktrace)
+{
+      //[java.|javax.|org.apache.|com.sun.|sun.] in stacktrace
+}
+
 =================================================================================
 
 IsClientSigned(Policy p1, Policy p2):
